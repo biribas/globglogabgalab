@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>True/False Quiz</title>
+        <script>
+            const N = 5;
+            var score = 0;
+            var answered = new Array(N).fill(false);
+            const messages = ['You didn\'t get any questions right. :(',
+                              'Congratulations!!! You got all the questions right! :)'];
+            const exp = ['Bilbo Baggins is the main character of \"The Hobbit\".',
+                        'They\'re actually orange.',
+                        'The series ran for 10 seasons and consisted of 236 episodes which were first broadcast between September 22, 1994 and May 6, 2004.',
+                        'An octopus has one main, systemic heart to pumps blood around its body. The two additional hearts are responsible for pumping blood over each of its gills.',
+                        'Although Mercury is closest to the sun, Venus is the planet that has the highest average surface temperature in the solar system, reaching about 450°C.'];
+
+            document.addEventListener('DOMContentLoaded', () => {
+                Array.from({length: N}, (_, i) => document.querySelectorAll('button.question' + (i + 1)))
+                .forEach((question, i) =>
+                question.forEach(choice =>
+                choice.addEventListener('click', () => {
+                    if (!answered[i]) {
+                        answered[i] = true;
+                        if (choice.id) {
+                            choice.style.backgroundColor = '#90ee90';
+                            document.querySelector('p.question' + (i + 1)).innerHTML = 'Correct. ' + exp[i];
+                            score++;
+                        }
+                        else {
+                            choice.style.backgroundColor = '#ff4f4b';
+                            document.querySelector('p.question' + (i + 1)).innerHTML = 'Incorrect. ' + exp[i];
+                        }
+
+                        if (answered.every(e => e)) {
+                            document.querySelector('#feedback').innerHTML = !score ? messages[0] : score == N ? messages[1] : `You got ${score}/${N} questions right!`;
+                            document.querySelector('.return').style.display = 'inline';
+                            sessionStorage.setItem('score1', score);
+                        }
+                    }
+                })));
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>True/False Quiz</h1>
+        </div>
+
+        <div class="section">
+            <div>
+                <h4>Bilbo Baggins is the main character of "The Lord of the Rings"</h4>
+                <button class="btn btn-outline-dark question1">True</button>
+                <button class="btn btn-outline-dark question1" id=1>False</button>
+                <p class="question1"></p>
+
+                <hr>
+
+                <h4>The black box in a plane is black</h4>
+                <button class="btn btn-outline-dark question2">True</button>
+                <button class="btn btn-outline-dark question2" id=1>False</button>
+                <p class="question2"></p>
+
+                <hr>
+
+                <h4>There are 236 episodes of Friends</h4>
+                <button class="btn btn-outline-dark question3" id=1>True</button>
+                <button class="btn btn-outline-dark question3">False</button>
+                <p class="question3"></p>
+
+                <hr>
+
+                <h4>An octopus has three hearts</h4>
+                <button class="btn btn-outline-dark question4" id=1>True</button>
+                <button class="btn btn-outline-dark question4">False</button>
+                <p class="question4"></p>
+
+                <hr>
+
+                <h4>Mercury is the hottest planet in the solar system</h4>
+                <button class="btn btn-outline-dark question5">True</button>
+                <button class="btn btn-outline-dark question5" id=1>False</button>
+                <p class="question5"></p>
+
+                <hr>
+
+                <h4 id="feedback"></h4>
+                <div class="text-center">
+                    <a class="btn btn-outline-dark return" href="index.html">Return to Homepage</a>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-light text-center text-lg-start">
+            <div class="text-center p-3" style="background-color: grey;">
+                A homepage made by
+                <a class="text-dark" href="https://github.com/saintwalker2814">SaintWalker</a>
+                for CS50 Problem Set 8
+            </div>
+        </footer>
+    </body>
+</html>

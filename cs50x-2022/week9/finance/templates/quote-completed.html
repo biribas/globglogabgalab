@@ -1,0 +1,9 @@
+{% extends "action-completed.html" %}
+
+{% block title %}
+    {{ quote['name'] }}
+{% endblock %}
+
+{% block phrase %}
+    The {{ quote['name'] }} stock price is currently {{ quote['price'] | usd }}
+{% endblock %}

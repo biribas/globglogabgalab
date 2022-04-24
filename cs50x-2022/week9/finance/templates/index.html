@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for share in shares %}
+            <tr>
+                <td>{{ share["symbol"] }}</td>
+                <td>{{ share["name"] }}</td>
+                <td>{{ share["shares"] }}</td>
+                <td>{{ share["price"] | usd }}</td>
+                <td>{{ (share["price"] * share["shares"]) | usd }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4" class="text-end">Cash</th>
+                <td colspan="5">{{ cash | usd }}</td>
+            </tr>
+            <tr>
+                <th colspan="4" class="text-end">TOTAL</th>
+                <td colspan="5">{{ total | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

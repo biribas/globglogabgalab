@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="mb-3">
+        <h3>{% block phrase %}{% endblock %}</h3>
+    </div>
+    <form action="/">
+        <button class="btn btn-primary" type="submit">Return Homepage</button>
+    </form>
+{% endblock %}

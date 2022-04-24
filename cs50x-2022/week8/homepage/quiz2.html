@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Multiple Choice Quiz</title>
+        <script>
+            const N = 5;
+            var score = 0;
+            var answered = new Array(N).fill(false);
+            const messages = ['You didn\'t get any questions right. :(',
+                              'Congratulations!!! You got all the questions right! :)'];
+            const exp = ['Announced in January 2007, the first iPhone was released in June 29, 2007',
+                        'Russia has 11 time zones across its vast territory',
+                        'The death of Vincent van Gogh, the Dutch post-Impressionist painter, occurred in the early morning of 29 July 1890, in his room.',
+                        'Kvothe, the main character of the Kingkiller Chronicle, has true red hair, red as flame.',
+                        'As in humans, dogs have two sets of teeth in their lifetime. Adult dogs have 42 permanent teeth, also known as secondary teeth.'];
+
+            document.addEventListener('DOMContentLoaded', () => {
+                Array.from({length: N}, (_, i) => document.querySelectorAll('button.question' + (i + 1)))
+                .forEach((question, i) =>
+                question.forEach(choice =>
+                choice.addEventListener('click', () => {
+                    if (!answered[i]) {
+                        answered[i] = true;
+                        if (choice.id) {
+                            choice.style.backgroundColor = '#90ee90';
+                            document.querySelector('p.question' + (i + 1)).innerHTML = 'Correct. ' + exp[i];
+                            score++;
+                        }
+                        else {
+                            choice.style.backgroundColor = '#ff4f4b';
+                            document.querySelector('p.question' + (i + 1)).innerHTML = 'Incorrect. ' + exp[i];
+                        }
+
+                        if (answered.every(e => e)) {
+                            document.querySelector('#feedback').innerHTML = !score ? messages[0] : score == N ? messages[1] : `You got ${score}/${N} questions right!`;
+                            document.querySelector('.return').style.display = 'inline';
+                            sessionStorage.setItem('score2', score);
+                        }
+                    }
+                })));
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Multiple Choice Quiz</h1>
+        </div>
+
+        <div class="section">
+            <div>
+                <h4>What month of which year was the first iPhone released?</h4>
+                <button class="btn btn-outline-dark question1">May 2007</button>
+                <button class="btn btn-outline-dark question1" id=1>June 2007</button>
+                <button class="btn btn-outline-dark question1">July 2007</button>
+                <button class="btn btn-outline-dark question1">May 2008</button>
+                <button class="btn btn-outline-dark question1">June 2008</button>
+                <p class="question1"></p>
+
+                <hr>
+
+                <h4>How many time zones are there in Russia?</h4>
+                <button class="btn btn-outline-dark question2">9</button>
+                <button class="btn btn-outline-dark question2">10</button>
+                <button class="btn btn-outline-dark question2" id=1>11</button>
+                <button class="btn btn-outline-dark question2">12</button>
+                <button class="btn btn-outline-dark question2">13</button>
+                <p class="question2"></p>
+
+                <hr>
+
+                <h4>What year did Vincent Van Gogh die?</h4>
+                <button class="btn btn-outline-dark question3">1886</button>
+                <button class="btn btn-outline-dark question3">1887</button>
+                <button class="btn btn-outline-dark question3">1888</button>
+                <button class="btn btn-outline-dark question3">1889</button>
+                <button class="btn btn-outline-dark question3" id=1>1890</button>
+                <p class="question3"></p>
+
+                <hr>
+
+                <h4>What is the hair color of the main character of the book series "The Kingkiller Chronicle"?</h4>
+                <button class="btn btn-outline-dark question4">Brown</button>
+                <button class="btn btn-outline-dark question4">White</button>
+                <button class="btn btn-outline-dark question4">Black</button>
+                <button class="btn btn-outline-dark question4" id=1>Red</button>
+                <button class="btn btn-outline-dark question4">Blonde</button>
+                <p class="question4"></p>
+
+                <hr>
+
+                <h4>How many permanent teeth do dogs have?</h4>
+                <button class="btn btn-outline-dark question5">40</button>
+                <button class="btn btn-outline-dark question5">41</button>
+                <button class="btn btn-outline-dark question5" id=1>42</button>
+                <button class="btn btn-outline-dark question5">43</button>
+                <button class="btn btn-outline-dark question5">44</button>
+                <p class="question5"></p>
+
+                <hr>
+
+                <h4 id="feedback"></h4>
+                <div class="text-center">
+                    <a class="btn btn-outline-dark return" href="index.html">Return to Homepage</a>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-light text-center text-lg-start">
+            <div class="text-center p-3" style="background-color: grey;">
+                A homepage made by
+                <a class="text-dark" href="https://github.com/saintwalker2814">SaintWalker</a>
+                for CS50 Problem Set 8
+            </div>
+        </footer>
+    </body>
+</html>

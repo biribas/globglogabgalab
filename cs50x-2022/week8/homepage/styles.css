@@ -1,0 +1,72 @@
+body {
+    background-color: #c2c5cc;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    font-family: "Garamond", sans-serif;
+}
+
+h1 {
+    font-size: 72px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 36px;
+    text-align: center;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    padding: 0 0 1px 1px;
+}
+
+input[type="text"] {
+    background-color: #dcdcdc;
+}
+
+img, #playagain {
+    visibility: hidden;
+}
+
+.header {
+    color: black;
+    background-color: grey;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+}
+
+.section {
+    padding: 2rem 1rem;
+}
+
+.return, #reset {
+    display: none;
+}
+
+.buttondiv {
+    text-align: center;
+    padding: 1rem 1rem;
+}
+
+.child {
+    display: inline-block;
+}
+
+#feedback {
+    text-align: center;
+}
+
+#quiz1, #quiz2, #quiz3 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+
+
