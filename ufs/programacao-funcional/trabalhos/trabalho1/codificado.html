@@ -1,0 +1,125 @@
+<!-- 
+-----------------------
+IDENTIFICAÇÃO DA EQUIPE
+-----------------------
+Turma: 02
+1. Alexandre Pereira Vieira
+2. Carlos Adriano Gama Cerqueira
+3. Marlisson dos Anjos Monte
+4. Joao Paulo Fraga Santos
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trabalho 1 - PF 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head>
+
+<body>
+    <h1>COMP0393 - PROGRAMAÇÃO FUNCIONAL</h1>
+    <h2>TRABALHO 1 - Texto codificado</h2>
+    <!-- ALTERAR NÚMERO DA TURMA -->
+    <h3>Turma 02</h3>
+    <h3>Equipe</h3>
+    <ol>
+        <!-- ALTERAR NOMES DOS INTEGRANTES DA EQUIPE -->
+        <li>Alexandre Pereira Vieira</li>
+        <li>Carlos Adriano Gama Cerqueira</li>
+        <li>Marlisson dos Anjos Monte</li>
+        <li>Joao Paulo Fraga Santos</li>
+    </ol>
+    <hr>
+    <h2>Leitura do arquivo original</h2>
+    <input type="file" name="inputfile" id="inputfile" onchange="processa(this)">
+	<br>
+
+    <h2>Texto codificado</h2>
+    <!-- CSS adicionado para o texto codificado se ajustar a tela -->
+    <pre id="output" style="white-space: pre-wrap; word-wrap: break-word;"></pre> 
+    
+    <script type="text/javascript">
+        const processa = elem => {
+            const fr = new FileReader();
+            fr.readAsText(elem.files[0]);
+            fr.onload = () => codifica(fr.result);
+        }
+        
+        const codifica = texto => {
+            const partes = divideTexto(texto).map(parte => converteTexto(parte)); // Codifica cada parte do texto
+            const resultado = partes.join('Z'); // Junta as partes com letra 'Z' (necessário para a descodificação)
+            document.getElementById('output').textContent = resultado;  
+        }
+
+        // Converte o texto recebido em criptografia
+        const converteTexto = texto => {
+            const base = calculaBase(texto);
+            const baseCodificada = base * 3 - 6; // Codifica a base com a função matemática f(x) = 3x - 6
+            const n = maxDigitos(base);          // Utilizado para adicionar zeros à esquerda dos dígitos, caso necessário
+            const caracteres = [...texto].map(ch => { // Para cada char do texto
+                const ascii = ch.charCodeAt();   // Converte para valor ASCII
+                const key = baseCodificada - 14; // Chave para deslocamento de caracteres
+                return cifra(ascii, key)         // Desloca o valor ASCII 'key' vezes para a direita
+                       .toString(base)           // Converte para base numérica calculada anteriormente
+                       .padStart(n, '0')         // Adiciona zeros à esquerda
+                       .toUpperCase();           // Coloca todo o texto codificado em letras maiúsculas
+            });
+            return caracteres.join('') // Une os caracteres
+                             .concat(baseCodificada); // Adiciona o valor de 'baseCodificada' no fim do texto (necessário para a descodificação)
+        };
+        
+        // Divide o texto em partes de (200 + base) caracteres
+        const divideTexto = texto => {
+            const base = calculaBase(texto);
+            const regex = new RegExp(`[\\s\\S]{1,${200 + base}}`, 'gm'); 
+            return texto.match(regex);
+        }; 
+        
+        // Calcula, a partir da média dos ASCIIs, a base numérica (entre 12 e 35) a ser usada
+        const calculaBase = texto => {
+            const soma = [...texto].reduce((acc, char) => acc + char.charCodeAt(), 0);
+            const media = Math.round(soma / texto.length);
+            return (media % 23) + 12;
+        };
+
+        // Calcula a quantidade de digitos que um número em uma certa base tem ao representar o valor 255
+        const maxDigitos = base => Math.ceil(Math.log(256) / Math.log(base));
+
+        // Desloca o valor ASCII 'key' vezes para a direita
+        const cifra = (ascii, key) => {
+            const value = ascii + key;
+            return value > 255 ? value - 255 : value;
+        }
+
+        // Desloca o valor ASCII 'key' vezes para a esquerda
+        const decifra = (ascii, key) => {
+            const value = ascii - key;
+            return value < 0 ? value + 255 : value;
+        }
+
+        const decodifica = textocodificado => {
+            const partes = textocodificado.split('Z'); // Separa as partes do texto
+            const resultado = partes.map(parte => { // Para cada parte
+                const baseCodificada = parseInt(parte.substring(parte.length - 2)); // Últimos dois caracteres (base numérica codificada)
+                const base = (baseCodificada + 6) / 3; // Base numérica do texto
+                const key = baseCodificada - 14; // Chave para deslocamento de caracteres
+                const texto = parte.substring(0 , parte.length - 2); // Texto codificado
+                const n = maxDigitos(base); // Quantidade de dígitos por caractere codificado
+
+                return texto.match(new RegExp(`.{1,${n}}`, 'g')) // Separa os caracteres codificados
+                            .map(ch => { // Para cada caractere cifrado
+                                const cifrado = parseInt(ch, base);      // Converte para base 10
+                                const decifrado = decifra(cifrado, key); // Desloca o valor cifrado 'key' vezes para a esquerda
+                                return String.fromCharCode(decifrado);   // Converte o valor ASCII para seu equivalente caractere
+                            }).join(''); // Une o array de caracteres     
+            }).join(''); // Une as partes do texto
+            
+            return resultado;
+        }
+
+	</script>
+
+</body>
+
+</html>
