@@ -37,7 +37,7 @@ Before read this repository files, remember the [Academic Honesty](https://cs50.
     * [Hello](./week6/sentimental-hello/hello.py)
     * Mario
       * [Less](./week6/sentimental-mario/less/mario.py)
-      * [More](./week6/sentimental-mario/more/mario.
+      * [More](./week6/sentimental-mario/more/mario.py)
     * [Cash (Less)](./week6/sentimental-cash/cash.py)
     * [Credit (More)](./week6/sentimental-credit/credit.py)
     * [Readability](./week6/sentimental-readability/readability.py)
