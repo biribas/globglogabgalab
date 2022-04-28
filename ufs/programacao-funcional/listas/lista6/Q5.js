@@ -5,8 +5,8 @@
   f(n) = n * f(n - 1)
 */
 
-const f = n => n < 1 || !Number.isInteger(n) ? "Valor inválido" : fAux(n);
+const f = n => n < 0 || !Number.isInteger(n) ? "Valor inválido" : fAux(n);
 
-const fAux = n => n == 1 ? 1 : n * fAux(n - 1);
+const fAux = n => n == 0 ? 1 : n * fAux(n - 1);
 
 console.log(f(5));
