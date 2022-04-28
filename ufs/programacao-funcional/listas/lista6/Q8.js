@@ -6,8 +6,8 @@
   f(m, n, acc) = f(m - n, n, acc + 1), se m > n
 */
 
-const f = (m, n) => m < 0 || n <= 0 || !Number.isInteger(n) || !Number.isInteger(m) ? "Valor inválido" : fAux(m, n, 0);
+const quociente = (m, n) => m < 0 || n <= 0 || !Number.isInteger(n) || !Number.isInteger(m) ? "Valor inválido" : quocienteAux(m, n, 0);
 
-const fAux = (m, n, acc) => m < n ? acc : fAux(m - n, n, acc + 1);
+const quocienteAux = (m, n, acc) => m < n ? acc : quocienteAux(m - n, n, acc + 1);
 
-console.log(f(10, 3));
+console.log(quociente(10, 3));

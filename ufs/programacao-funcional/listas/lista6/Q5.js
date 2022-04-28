@@ -5,8 +5,8 @@
   f(n) = n * f(n - 1)
 */
 
-const f = n => n < 0 || !Number.isInteger(n) ? "Valor inválido" : fAux(n);
+const fatorial = n => n < 0 || !Number.isInteger(n) ? "Valor inválido" : fatorialAux(n);
 
-const fAux = n => n == 0 ? 1 : n * fAux(n - 1);
+const fatorialAux = n => n == 0 ? 1 : n * fatorialAux(n - 1);
 
-console.log(f(5));
+console.log(fatorial(5));
