@@ -6,8 +6,8 @@
   f(n) = f(n - 1) + f(n - 2), para n>= 3
 */
 
-const fibonacci = n => n < 1 || !Number.isInteger(n) ? "Valor inválido" : fAux(n);
+const fibonacci = n => n < 1 || !Number.isInteger(n) ? "Valor inválido" : fibonacciAux(n);
 
-const fibonacciAux = n => n < 3 ? n - 1 : fAux(n - 1) + fAux(n - 2);
+const fibonacciAux = n => n < 3 ? n - 1 : fibonacciAux(n - 1) + fibonacciAux(n - 2);
 
-console.log(f(10));
+console.log(fibonacci(10));
