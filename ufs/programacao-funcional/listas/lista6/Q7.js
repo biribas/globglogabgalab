@@ -10,5 +10,3 @@ const resto = (m, n) => m < 0 || n <= 0 || !Number.isInteger(n) || !Number.isInt
 const restoAux = (m, n) => m < n ? m : restoAux(m - n, n);
 
 console.log(resto(5, 2));
-
-module.exports = {resto};
