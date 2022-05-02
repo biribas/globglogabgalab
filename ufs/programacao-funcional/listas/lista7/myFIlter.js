@@ -1,18 +1,18 @@
 // Reimplementação do método Array.prototype.filter()
 
 Array.prototype.myFilter = function(callback, thisArg) {
-    if (this == null)
+    if (this === null)
         throw new TypeError("this is null or not defined");
     
     return filter(callback, this, this, 0, thisArg);
 }
 
-const filter = (callback, orginalArray, [head, ...tail], index, thisArg) => {
-    if (head == undefined)
+const filter = (callback, originalArray, [head, ...tail], index, thisArg) => {
+    if (head === undefined)
         return [];
     
-    const recursion = filter(callback, orginalArray, tail, index + 1, thisArg);
-    const filteredValue = callback.call(thisArg, head, index, orginalArray);
+    const recursion = filter(callback, originalArray, tail, index + 1, thisArg);
+    const filteredValue = callback.call(thisArg, head, index, originalArray);
     return filteredValue ? [head, ...recursion] : [...recursion];
 }
 
