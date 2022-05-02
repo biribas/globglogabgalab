@@ -7,15 +7,13 @@ Array.prototype.myFilter = function(callback, thisArg) {
     return filter(callback, this, this, 0, thisArg);
 }
 
-const filter = (callback, orginalArray, [first, ...rest], index, thisArg) => {
-    if (typeof first == 'undefined')
+const filter = (callback, orginalArray, [head, ...tail], index, thisArg) => {
+    if (head == undefined)
         return [];
-    else {
-        const recursion = filter(callback, orginalArray, rest, index + 1, thisArg);
-        const filteredValue = callback.call(thisArg, first, index, orginalArray);
-        
-        return filteredValue ? [first, ...recursion] : [...recursion];   
-    }
+    
+    const recursion = filter(callback, orginalArray, tail, index + 1, thisArg);
+    const filteredValue = callback.call(thisArg, head, index, orginalArray);
+    return filteredValue ? [head, ...recursion] : [...recursion];
 }
 
 const filteredArray = [0, 1, 2, 3, 4, 5].myFilter((e, i, array) => e > 1 && e < 5);
