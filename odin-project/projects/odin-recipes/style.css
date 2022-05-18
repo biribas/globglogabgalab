@@ -1,0 +1,83 @@
+body {
+    background-color: rgb(227,178,97);
+}
+
+.title {
+    font-family: "Courier New", "Lucida Console", sans-serif;
+    text-align: center;
+}
+
+#recipes {
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.container {
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: rgb(238,217,195);
+    border: 10px solid black;
+    border-radius: 20px;
+}
+
+ul.time {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.time li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text#lasagna {
+    text-align: center;
+    margin-left: 0;
+}
+
+.text, #steps li {
+    margin: 5px 2% 5px 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.text {
+    margin-left: 2%;
+    text-indent: 30px;
+}
+
+#ingredients {
+    overflow: hidden;
+    margin-right: 5px;
+    padding-left: 20px;
+}
+
+#ingredients li {
+    float: left;
+    margin: 0 20px;
+}
+
+.link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.link a,
+.link a:visited {
+    color: brown;
+    text-decoration: none;
+}
+
+.link a:hover,
+.link a:active {
+    color: brown;
+    text-decoration: underline;
+}
