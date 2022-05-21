@@ -7,21 +7,20 @@ body {
     text-align: center;
 }
 
-#recipes {
-    text-align: center;
-    list-style-type: none;
-    padding: 0;
-}
-
 .container {
     margin-left: 25%;
     margin-right: 25%;
     background-color: rgb(238,217,195);
     border: 10px solid black;
     border-radius: 20px;
+    padding: 0 30px;
 }
 
-ul.time {
+.container > * {
+    padding: 0 20px;
+}
+
+ul.time, #recipes{
     list-style-type: none;
     padding: 0;
     text-align: center;
@@ -44,25 +43,21 @@ img {
 }
 
 .text, #steps li {
-    margin: 5px 2% 5px 0;
     text-align: justify;
     text-justify: inter-word;
 }
 
 .text {
-    margin-left: 2%;
     text-indent: 30px;
 }
 
 #ingredients {
     overflow: hidden;
-    margin-right: 5px;
-    padding-left: 20px;
 }
 
 #ingredients li {
     float: left;
-    margin: 0 20px;
+    width: 50%;
 }
 
 .link {
