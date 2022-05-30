@@ -1,0 +1,30 @@
+html, body {
+  height:          100%;
+  margin:          0;
+  padding:         0;
+  background:      #121212;
+  text-align:      center;
+  color:           #fff;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+canvas {
+  border: 10px wheat solid;
+}
+
+#score{
+  color: black;
+  padding: 15px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 8px;
+  align-self: center;
+  margin-bottom: 20px;
+  background-color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
