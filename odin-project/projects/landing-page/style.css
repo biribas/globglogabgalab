@@ -1,0 +1,108 @@
+.flex {
+  display: flex;
+}
+
+body {
+  height: 100vh;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.header {
+  padding: 10px;
+  flex-direction: column;
+  background-color: darkgoldenrod;
+}
+
+.bar {
+  justify-content: space-between;
+}
+
+.presentation {
+  justify-content: space-around;
+}
+
+.presentation img {
+  height: 200px;
+}
+
+.information-title {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.information {
+  justify-content: center;
+  gap:100px;
+  padding: 10px;
+}
+
+.image {
+  width: 200px;
+}
+
+.image img {
+  border: 5px solid black;
+  border-radius: 16px;
+  height: 100px;
+  width: 100px;
+}
+
+.quote {
+  box-sizing: border-box;
+  height: 300px;
+  padding: 15% 25%;
+  background-color: #E5E7EB;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #1F2937;
+}
+
+.quote .text {
+  font-size: 36px;
+  font-style: italic;
+}
+
+.quote .author {
+  font-size: 20px;
+  font-weight: bolder;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+
+.useless {
+  padding: 50px;
+  margin: 50px 15%;
+  gap: 50px;
+  justify-content: center;
+  border-radius: 16px;
+  background-color: yellow;
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  background-color: darkgoldenrod;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(126, 29, 29);
+}
+
+a:hover {
+  text-decoration: underline;
+}
