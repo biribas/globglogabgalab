@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.shadow {
+  text-shadow: 0 0 5px black;
+}
+
 body {
   height: 100vh;
   flex-direction: column;
@@ -9,26 +13,68 @@ body {
   margin: 0;
 }
 
-.content {
-  flex: 1;
-}
-
 .header {
-  padding: 10px;
   flex-direction: column;
   background-color: darkgoldenrod;
 }
 
-.bar {
+#logo {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #F9FAF8;
+}
+
+.bar, .presentation {
+  width: 70%;
+  margin: 0 auto;
   justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .presentation {
-  justify-content: space-around;
+  padding: 50px 0;
+  align-items: flex-start;
+}
+
+.presentation > div {
+  max-width: 50%;
+  text-shadow: 0 0 2px black;
+  align-self: center;
+}
+
+.presentation .text {
+  font-size: 48px;
+  font-weight: bolder;
+  color: #F9FAF8;
+}
+
+.presentation .subtext {
+  font-size: 24px;
+  font-weight: 500;
+  color: #F9FAF8;
 }
 
 .presentation img {
-  height: 200px;
+  border: 2px solid brown;
+  border-radius: 10px;
+  width: 40%;
+  height: 100%;
+}
+
+.presentation input {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid brown;
+  border-radius: 10px;
+  width: 100%;
+  color: black;
+  background-color: rgb(220, 220, 0);
+}
+
+.presentation input:hover {
+  background-color: yellow;
 }
 
 .information-title {
@@ -95,7 +141,13 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  gap: 10px;
+  gap: 20px;
+}
+
+ul li {
+  color: #F9FAF8;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 a {
