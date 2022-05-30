@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.shadow {
-  text-shadow: 0 0 5px black;
-}
-
 body {
   height: 100vh;
   flex-direction: column;
@@ -16,43 +12,52 @@ body {
 .header {
   flex-direction: column;
   background-color: darkgoldenrod;
+  color: #F9FAF8;
 }
 
-#logo {
+.logo {
   font-size: 30px;
   font-weight: bolder;
+  text-shadow: 0 0 5px black;
+}
+
+.header a {
   color: #F9FAF8;
+  text-decoration: none;
+  text-shadow: 0 0 5px black;
+}
+
+.header a:hover {
+  text-decoration: underline;
 }
 
 .bar, .presentation {
   width: 70%;
+  padding: 10px 20px;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
 }
 
 .presentation {
   padding: 50px 0;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .presentation > div {
   max-width: 50%;
-  text-shadow: 0 0 2px black;
-  align-self: center;
+  text-shadow: 0 0 5px black;
 }
 
 .presentation .text {
   font-size: 48px;
   font-weight: bolder;
-  color: #F9FAF8;
 }
 
 .presentation .subtext {
   font-size: 24px;
   font-weight: 500;
-  color: #F9FAF8;
+  text-shadow: 0 0 2px black;
 }
 
 .presentation img {
@@ -62,18 +67,22 @@ body {
   height: 100%;
 }
 
-.presentation input {
+.presentation button {
   margin-top: 10px;
   font-size: 24px;
   font-weight: bold;
-  border: 1px solid brown;
+  border: 2px solid brown;
   border-radius: 10px;
   width: 100%;
+  background-color: rgb(215, 215, 0);
   color: black;
-  background-color: rgb(220, 220, 0);
 }
 
-.presentation input:hover {
+.presentation button:hover {
+  background-color: rgb(235, 235, 0);
+}
+
+.presentation button:active {
   background-color: yellow;
 }
 
@@ -122,7 +131,7 @@ body {
   margin-top: 10px;
 }
 
-.useless {
+.call {
   padding: 50px;
   margin: 50px 15%;
   gap: 50px;
@@ -131,7 +140,7 @@ body {
   background-color: yellow;
 }
 
-.footer {
+footer {
   padding: 10px;
   text-align: center;
   background-color: darkgoldenrod;
@@ -150,11 +159,11 @@ ul li {
   font-weight: 500;
 }
 
-a {
+footer > a {
   text-decoration: none;
   color: rgb(126, 29, 29);
 }
 
-a:hover {
+footer > a:hover {
   text-decoration: underline;
 }
