@@ -101,7 +101,8 @@ body {
 
 .images .subtext {
   width: 200px;
-  color: #1F2937;
+  color: darkgoldenrod;
+  font-weight: bold;
 }
 
 #quote {
