@@ -11,8 +11,8 @@ body {
 
 .header {
   flex-direction: column;
-  background-color: darkgoldenrod;
-  color: #F9FAF8;
+  background-color: rgb(167, 123, 11);
+  color: #E5E7EB;
 }
 
 .logo {
@@ -69,63 +69,60 @@ body {
 
 .presentation button {
   margin-top: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  border: 2px solid brown;
-  border-radius: 10px;
   width: 100%;
-  background-color: rgb(215, 215, 0);
-  color: black;
 }
 
-.presentation button:hover {
-  background-color: rgb(235, 235, 0);
-}
-
-.presentation button:active {
-  background-color: yellow;
-}
-
-.information-title {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.information {
+#information {
+  flex-direction: column;
   justify-content: center;
-  gap:100px;
-  padding: 10px;
+  align-items: center;
+  padding: 80px;
 }
 
-.image {
-  width: 200px;
+#information .title {
+  font-size: 36px;
+  font-weight: bolder;
+  color: rgb(167, 123, 11);
 }
 
-.image img {
-  border: 5px solid black;
+#information .images {
+  padding: 40px;
+  text-align: center;
+  gap: 50px;
+  height: auto;
+}
+
+.images img {
+  border: 4px solid brown;
   border-radius: 16px;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
-.quote {
+.images .subtext {
+  width: 200px;
+  color: #1F2937;
+}
+
+#quote {
   box-sizing: border-box;
   height: 300px;
-  padding: 15% 25%;
+  padding: 10% 25%;
   background-color: #E5E7EB;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #1F2937;
+  color: rgb(167, 123, 11);
+
 }
 
-.quote .text {
+#quote .text {
   font-size: 36px;
   font-style: italic;
 }
 
-.quote .author {
-  font-size: 20px;
+#quote .author {
+  font-size: 24px;
   font-weight: bolder;
   align-self: flex-end;
   margin-top: 10px;
@@ -133,17 +130,48 @@ body {
 
 .call {
   padding: 50px;
-  margin: 50px 15%;
-  gap: 50px;
-  justify-content: center;
+  margin: 50px 25%;
+  gap: 20%;
   border-radius: 16px;
-  background-color: yellow;
+  background-color: rgb(167, 123, 11);
+  justify-content: center;
+  align-items: center;
+}
+
+.call > div {
+  width: 50%;
+}
+
+.call .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #F9FAF8;
+  text-shadow: 0 0 5px black;
+}
+
+.call .subtitle {
+  font-size: 20px;
+  color: #F9FAF8;
+  text-shadow: 0 0 5px black;
+}
+
+.call > button {
+  padding: 15px;
 }
 
 footer {
   padding: 10px;
   text-align: center;
   background-color: darkgoldenrod;
+}
+
+footer > a {
+  text-decoration: none;
+  color: rgb(126, 29, 29);
+}
+
+footer > a:hover {
+  text-decoration: underline;
 }
 
 ul {
@@ -159,11 +187,19 @@ ul li {
   font-weight: 500;
 }
 
-footer > a {
-  text-decoration: none;
-  color: rgb(126, 29, 29);
+button {
+  font-size: 24px;
+  font-weight: bold;
+  border: 0px solid brown;
+  border-radius: 10px;
+  background-color: #fee001;
+  color: black;
 }
 
-footer > a:hover {
-  text-decoration: underline;
+button:hover {
+  background-color: #F3D601;
+}
+
+button:active {
+  background-color: #E7CC01;
 }
