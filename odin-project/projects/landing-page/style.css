@@ -129,7 +129,7 @@ body {
   margin-top: 10px;
 }
 
-.call {
+#call {
   padding: 50px;
   margin: 50px 25%;
   gap: 20%;
@@ -139,24 +139,24 @@ body {
   align-items: center;
 }
 
-.call > div {
+#call > div {
   width: 50%;
 }
 
-.call .title {
+#call .title {
   font-size: 24px;
   font-weight: bold;
   color: #F9FAF8;
   text-shadow: 0 0 5px black;
 }
 
-.call .subtitle {
+#call .subtitle {
   font-size: 20px;
   color: #F9FAF8;
   text-shadow: 0 0 5px black;
 }
 
-.call > button {
+#call > button {
   padding: 15px;
 }
 
