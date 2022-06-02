@@ -57,4 +57,4 @@ function game() {
   console.log(computerScore > playerScore? 'You lose :(' : computerScore < playerScore ? 'You win :)' : 'It\'s a tie');
 }
 
-game();
+document.addEventListener('DOMContentLoaded', game);
