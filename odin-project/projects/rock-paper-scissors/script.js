@@ -1,20 +1,17 @@
 const LIST = ['Rock', 'Paper', 'Scissors'];
 
 function computerPlay() {
-  const index = Math.floor(Math.random() * 3);
-  return LIST[index];
+  return Math.floor(Math.random() * 3);
 }
 
 function playRound(playerSelection, computerSelection) {
-  const playerIndex = findIndex(playerSelection);
-  const computerIndex = findIndex(computerSelection);
-
-  const value = playerIndex - computerIndex;
+  const value = playerSelection - computerSelection;
   
   if (value === 0)
     return 'It\'s a tie!';
   
-  playerSelection = LIST[playerIndex];
+  playerSelection = LIST[playerSelection];
+  computerSelection = LIST[computerSelection];
   
   if (value === 2 || value === -1)
     return `You Lose! ${computerSelection} beats ${playerSelection}`;
@@ -22,13 +19,30 @@ function playRound(playerSelection, computerSelection) {
   return `You Win! ${playerSelection} beats ${computerSelection}`;
 }
 
-function findIndex(element) {
-  return LIST.findIndex(e => e.toLowerCase() === element.toLowerCase());
+function validateInput(element) {
+  if (element === null) {
+    console.log('Invalid input');
+    return -1;
+  }
+
+  element = element.trim();
+  const index = LIST.findIndex(e => e.toLowerCase() === element.toLowerCase());
+  
+  if (index === -1) {
+    console.log('Invalid input');
+  }
+
+  return index;
 }
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt('Rock, paper or scissors?');
+    let playerSelection;
+    do {
+      const input = prompt('Rock, paper or scissors?');
+      playerSelection = validateInput(input);
+    } while (playerSelection === -1);
+
     const computerSelection = computerPlay();
     console.log(playRound(playerSelection, computerSelection));
   }
