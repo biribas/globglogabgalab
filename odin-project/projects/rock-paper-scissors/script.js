@@ -1,4 +1,6 @@
 const LIST = ['Rock', 'Paper', 'Scissors'];
+var computerScore = 0;
+var playerScore = 0;
 
 function computerPlay() {
   return Math.floor(Math.random() * 3);
@@ -13,9 +15,12 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = LIST[playerSelection];
   computerSelection = LIST[computerSelection];
   
-  if (value === 2 || value === -1)
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+  if (value === 2 || value === -1) {
+    computerScore++;
+    return `You Lose the round! ${computerSelection} beats ${playerSelection}`;
+  }
   
+  playerScore++;
   return `You Win! ${playerSelection} beats ${computerSelection}`;
 }
 
@@ -36,7 +41,8 @@ function validateInput(element) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 1; i <= 5; i++) {
+    console.log(`Round ${i}/5`);
     let playerSelection;
     do {
       const input = prompt('Rock, paper or scissors?');
@@ -46,6 +52,9 @@ function game() {
     const computerSelection = computerPlay();
     console.log(playRound(playerSelection, computerSelection));
   }
+
+  console.log('------------------------------');
+  console.log(computerScore > playerScore? 'You lose :(' : computerScore < playerScore ? 'You win :)' : 'It\'s a tie');
 }
 
 game();
