@@ -1,3 +1,19 @@
+const buttons = document.querySelectorAll('.button');
+const icon = [...buttons].map(e => e.textContent);
+const moves = [...buttons].map(e => e.dataset.moves);
+
+const phrase = document.querySelector('#text');
+
+const player = {
+  move: document.querySelector('#player > .move'),
+  score: document.querySelector('#player > .score')
+}
+
+const computer = {
+  move: document.querySelector('#computer > .move'),
+  score: document.querySelector('#computer > .score')
+}
+
 const LIST = ['Rock', 'Paper', 'Scissors'];
 var computerScore = 0;
 var playerScore = 0;
@@ -56,5 +72,3 @@ function game() {
   console.log('------------------------------');
   console.log(computerScore > playerScore? 'You lose :(' : computerScore < playerScore ? 'You win :)' : 'It\'s a tie');
 }
-
-document.addEventListener('DOMContentLoaded', game);
