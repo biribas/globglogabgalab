@@ -28,3 +28,14 @@ body {
   margin: 0;
   padding: 20px;
 }
+
+#game {
+  padding: 50px;
+  justify-content: center;
+  gap: 30px;
+}
+
+#action {
+  align-self: center;
+}
+
