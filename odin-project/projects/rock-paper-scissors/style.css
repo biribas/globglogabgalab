@@ -39,3 +39,9 @@ body {
   align-self: center;
 }
 
+footer {
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(1, 1, 36);
+}
+
