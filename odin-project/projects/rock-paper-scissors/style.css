@@ -1,0 +1,16 @@
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  background-color: rgb(57, 57, 89);
+  color: white;
+}
+
+#header {
+  padding: 25px;
+  text-align: center;
+  font-size: 30px;
+  background-color: rgb(1, 1, 36);
+}
