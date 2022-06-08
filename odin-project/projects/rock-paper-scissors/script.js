@@ -5,7 +5,7 @@ const moves = [...buttons].map(e => e.dataset.move);
 const phrase = document.querySelector('#text');
 
 const modal = document.querySelector('#modal');
-const restartButton = modal.querySelector('#restart');
+const restart = modal.querySelector('#restart');
 
 const overlay = document.querySelector('.overlay');
 
@@ -95,7 +95,7 @@ function game() {
   buttons.forEach(button => button.addEventListener('click', playRound));
   player.move.addEventListener('transitionend', removeTransition);
   computer.move.addEventListener('transitionend', removeTransition);
-  restartButton.addEventListener('click', playAgain);
+  restart.addEventListener('click', playAgain);
 }
 
 document.addEventListener('DOMContentLoaded', game);
