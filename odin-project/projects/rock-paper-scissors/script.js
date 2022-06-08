@@ -4,6 +4,11 @@ const moves = [...buttons].map(e => e.dataset.move);
 
 const phrase = document.querySelector('#text');
 
+const modal = document.querySelector('#modal');
+const restartButton = modal.querySelector('#restart');
+
+const overlay = document.querySelector('.overlay');
+
 const player = {
   move: document.querySelector('#player > .move-box'),
   score: document.querySelector('#player span')
@@ -18,9 +23,26 @@ function computerPlay() {
   return Math.floor(Math.random() * 3);
 }
 
+function playAgain() {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+  player.move.innerText = computer.move.innerText = '?';
+  player.score.innerText = computer.score.innerText = '0';
+  player.move.classList.remove('win', 'lose');
+  computer.move.classList.remove('win', 'lose');
+  phrase.innerText = 'Score 5 points before the computer to win the game';
+}
+
 function checkEnd () {
-  if (+player.score.innerText === 5 || +computer.score.innerText === 5)
-    buttons.forEach(button => button.removeEventListener('click', playRound));
+  if (+player.score.innerText !== 5 && +computer.score.innerText !== 5)
+    return;
+  
+  const playerWins = +player.score.innerText === 5;   
+  
+  modal.firstElementChild.innerText = playerWins ? 'You win :) ' : 'You lose :( ';
+  
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
 }
 
 function refree(result, playerMove, computerMove) {
@@ -65,14 +87,15 @@ function playRound(e) {
   computer.move.innerText = icons[computerIndex];
 }
 
-function removeTransition(e) {
-  this.classList.remove('animation')
+function removeTransition() {
+  this.classList.remove('animation');
 }
 
 function game() {
   buttons.forEach(button => button.addEventListener('click', playRound));
   player.move.addEventListener('transitionend', removeTransition);
   computer.move.addEventListener('transitionend', removeTransition);
+  restartButton.addEventListener('click', playAgain);
 }
 
 document.addEventListener('DOMContentLoaded', game);
