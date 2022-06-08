@@ -16,63 +16,11 @@
   display: flex;
 }
 
-.overlay {
-  position: fixed;
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  opacity: 0.6;
-  z-index: 1;
-}
-
-.overlay.hidden {
-  display: none;
-}
-
 body {
   height: 100vh;
   background-color: var(--body-color);
   margin: 0;
   flex-direction: column;
-}
-
-#modal {
-  position: absolute;
-  width: 15rem;
-  top: 50%;
-  left: 50%;
-  border: 0.5rem solid black;
-  border-radius: 5%;
-  background-color: var(--header-color);
-  font-size: 1.5rem;
-  padding: 1rem;
-  text-align: center;
-  z-index: 2;
-  align-items: center;
-  transform: translate(-50%, -50%) scale(1);
-  transition: 200ms ease-in-out;
-}
-
-#modal.hidden {
-  transform: translate(-50%, -50%) scale(0);
-}
-
-#modal button {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border: 0;
-  border-radius: 5%;
-  background-color: var(--box-color);
-  color: var(--emoji-yellow);
-  transition: all 0.2s ease-in-out;
-}
-
-#modal button:hover {
-  background-color: var(--box-color-hover);
-  cursor: pointer;
-  
 }
 
 #content {
@@ -195,4 +143,54 @@ a::after {
 
 a:hover::after {
   width: 100%;
+}
+
+#modal {
+  position: absolute;
+  width: 15rem;
+  top: 50%;
+  left: 50%;
+  border: 0.5rem solid black;
+  border-radius: 5%;
+  background-color: var(--header-color);
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 200ms ease-in-out;
+  z-index: 2;
+}
+
+#modal.hidden {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+#modal button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 0;
+  border-radius: 5%;
+  background-color: var(--box-color);
+  color: var(--emoji-yellow);
+  transition: all 0.2s ease-in-out;
+}
+
+#modal button:hover {
+  background-color: var(--box-color-hover);
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.overlay.hidden {
+  display: none;
 }
