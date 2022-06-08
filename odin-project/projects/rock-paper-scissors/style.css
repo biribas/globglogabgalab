@@ -5,19 +5,78 @@
   font-family: 'Roboto Slab', sans-serif;
   user-select: none;
   color: white;
-  --box-color: rgb(35, 35, 56);
+  --body-color: rgb(57, 57, 89);
   --header-color: rgb(1, 1, 36);
+  --box-color: rgb(35, 35, 56);
+  --box-color-hover: rgb(17, 17, 26);
+  --emoji-yellow: #ffdc5d;
 }
 
 .flex {
   display: flex;
 }
 
+.overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
 body {
   height: 100vh;
-  background-color: rgb(57, 57, 89);
+  background-color: var(--body-color);
   margin: 0;
   flex-direction: column;
+}
+
+#modal {
+  position: absolute;
+  width: 15rem;
+  top: 50%;
+  left: 50%;
+  border: 0.5rem solid black;
+  border-radius: 5%;
+  background-color: var(--header-color);
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  z-index: 2;
+  align-items: center;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 200ms ease-in-out;
+}
+
+#modal.hidden {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+#modal button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 0;
+  border-radius: 5%;
+  background-color: var(--box-color);
+  color: var(--emoji-yellow);
+  transition: all 0.2s ease-in-out;
+}
+
+#modal button:hover {
+  background-color: var(--box-color-hover);
+  cursor: pointer;
+  
 }
 
 #content {
@@ -45,8 +104,8 @@ body {
 }
 
 #game-box > p {
-  margin-top: 0;
-  margin-bottom: 2.3rem;
+  margin-bottom: 0;
+  margin-top: 2.3rem;
   font-size: 2rem;
   font-weight: bold;
   align-self: center;
@@ -111,7 +170,7 @@ body {
 .button:hover {
   transform: scale(1.1);
   cursor: pointer;
-  background-color: rgb(17, 17, 26);
+  background-color: var(--box-color-hover);
 }
 
 footer {
@@ -123,7 +182,7 @@ footer {
 
 a {
   position: relative;
-  color: #ffdc5d;
+  color: var(--emoji-yellow);
   text-decoration: none;
 }
 
@@ -132,7 +191,7 @@ a::after {
   position: absolute;
   bottom: 0.1rem;
   left: 0;
-  border-bottom: 1px solid #ffdc5d;
+  border-bottom: 1px solid var(--emoji-yellow);
   width: 0%;
   transition: width .1s;
   pointer-events: none;
