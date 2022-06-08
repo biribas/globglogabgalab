@@ -33,7 +33,7 @@ function refree(result, playerMove, computerMove) {
   const draw = result === 0;
   const playerWins = result === -2 || result === 1;
 
-  if (draw) 
+  if (draw)
     phrase.innerText = "It's a tie!";
 
   else if (playerWins) {
@@ -55,19 +55,14 @@ function refree(result, playerMove, computerMove) {
 
 function playRound(e) {
   const playerIndex = moves.indexOf(e.target.dataset.move);
-  const playerIcon = icons[playerIndex];
-  const playerMove = moves[playerIndex];
-
   const computerIndex = computerPlay();
-  const computerIcon = icons[computerIndex];
-  const computerMove = moves[computerIndex];
-
+  
   const result = playerIndex - computerIndex;
   
-  player.move.innerText = playerIcon;
-  computer.move.innerText = computerIcon;
-
-  refree(result, playerMove, computerMove);
+  refree(result, moves[playerIndex], moves[computerIndex]);
+  
+  player.move.innerText = icons[playerIndex];
+  computer.move.innerText = icons[computerIndex];
 }
 
 function removeTransition(e) {
