@@ -5,7 +5,7 @@ const moves = [...buttons].map(e => e.dataset.move);
 const phrase = document.querySelector('#text');
 
 const modal = document.querySelector('#modal');
-const restart = modal.querySelector('#restart');
+const restartButton = modal.querySelector('#restart');
 
 const overlay = document.querySelector('.overlay');
 
@@ -66,7 +66,7 @@ function refree(result, playerMove, computerMove) {
   }
   
   else {
-    phrase.innerText = `You Lose! ${computerMove} beats ${playerMove} :(`;
+    phrase.innerText = `You Lose... ${computerMove} beats ${playerMove} :(`;
     computer.score.innerText = +computer.score.innerText + 1; 
     player.move.classList.add('lose');
     computer.move.classList.add('win');
@@ -87,15 +87,16 @@ function playRound(e) {
   computer.move.innerText = icons[computerIndex];
 }
 
-function removeTransition() {
+function removeTransition(e) {
   this.classList.remove('animation');
 }
 
 function game() {
+  playAgain();
   buttons.forEach(button => button.addEventListener('click', playRound));
   player.move.addEventListener('transitionend', removeTransition);
   computer.move.addEventListener('transitionend', removeTransition);
-  restart.addEventListener('click', playAgain);
+  restartButton.addEventListener('click', playAgain);
 }
 
 document.addEventListener('DOMContentLoaded', game);
