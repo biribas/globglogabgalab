@@ -38,13 +38,13 @@ body {
   margin: 0;
 }
 
-#game {
+#game-box {
   padding: 1.5rem;
   justify-content: center;
   gap: 4%;
 }
 
-#game > p {
+#game-box > p {
   margin-top: 0;
   margin-bottom: 2.3rem;
   font-size: 2rem;
@@ -52,7 +52,7 @@ body {
   align-self: center;
 }
 
-.move {
+.move-box {
   font-size: 8rem;
   width: 10rem;
   height: 10rem;
@@ -61,6 +61,19 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--box-color);
+  transition: transform 0.2s;
+}
+
+.win {
+  background-color: green;
+}
+
+.lose {
+  background-color: red;
+}
+
+.animation {
+  transform: scale(0.9);
 }
 
 .score {
@@ -71,7 +84,7 @@ body {
   font-weight: bold;
 }
 
-#action > p {
+#action-box > p {
   font-size: 1.3rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
